@@ -1,0 +1,65 @@
+.App {
+  font-family: Inter, sans-serif;
+  padding: 20px;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.App-header{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.group-row {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.checkpoints {
+  display: flex;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  gap: 0;
+}
+
+.checkpoint {
+  margin-bottom: 5px;
+}
+
+button {
+  margin: 5px;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled) {
+  background-color: #4caf50;
+  color: white;
+}
+
+.buttons .reset-button
+{
+  background-color: red;
+}
+/* 
+* {
+  font-size: calc(20px); 
+} */

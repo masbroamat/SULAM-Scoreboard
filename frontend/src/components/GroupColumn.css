@@ -1,0 +1,9 @@
+.group-column{
+    color: #242424;
+}
+
+.group-total{
+    font-size: 20px;
+    border-top: 1px black solid;
+    padding-top: 10px;
+}

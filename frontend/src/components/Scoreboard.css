@@ -1,0 +1,94 @@
+/* General styling */
+.scoreboard {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  gap: 200px;
+  padding: 20px;
+  
+}
+
+.groups {
+  display: flex;
+  flex-direction: column; 
+}
+
+/* Group layout */
+.group-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+  
+  .group-column {
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    background-color: #f9f9f9;
+    min-width: 150px;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .checkpoints {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .checkpoint label {
+    font-size: 14px;
+  }
+  
+  .checkpoint input {
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .group-total {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+ /* Ranking table */
+.ranking {
+  flex-shrink: 0; /* Prevent shrinking of the ranking table */
+  width: 40%; /* Allocate a fixed width for the ranking table */
+  text-align: center;
+}
+
+.ranking h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8rem; /* Large font size for hall display */
+  margin: 0 auto;
+}
+
+.ranking-table th,
+.ranking-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  color: #242424;
+}
+
+.ranking-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.ranking-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.ranking-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.ranking-table tr:hover {
+  background-color: #f1f1f1;
+}
