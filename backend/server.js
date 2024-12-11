@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 require('dotenv').config();
+const path = require("path");
 
 const app = express();
 app.use(cors());
@@ -21,7 +22,7 @@ const pool = new Pool({
 
 app.get("/*", function(req, res) {
     res.sendFile(
-        path.join(__dirname, "../frontend/build/index.html"),
+        path.join(__dirname, "../frontend/index.html"),
         function(err){
             if(err){
                 res.status(500).send(err);

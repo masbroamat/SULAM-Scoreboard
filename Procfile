@@ -1,1 +1,2 @@
-web: bin/start-nginx-solo
+web: npm start node server.js
+worker: npm run dev
