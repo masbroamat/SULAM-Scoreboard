@@ -27,7 +27,7 @@ function App() {
                 <h1>Leaderboard Scoreboard</h1>
                 <span className="buttons">
                     <button onClick={handleSave} className="save-button">Save</button>
-                    <button onClick={handleReset} className="reset-button">Reset</button>
+                    {/* <button onClick={handleReset} className="reset-button">Reset</button> */}
                 </span>
             </header>
             <Scoreboard />

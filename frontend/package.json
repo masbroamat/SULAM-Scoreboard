@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start-client": "react-scripts start",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && (cd ../server && npm install)",
     "lint": "eslint .",
     "preview": "vite preview"
   },
