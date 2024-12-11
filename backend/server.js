@@ -2,34 +2,33 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
-require('dotenv').config();
-const path = require("path");
+// require('dotenv').config(); 
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 5001;
+const PORT = 5000;
 
 // PostgreSQL connection pool
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    user: "postgres",
+    host: "localhost",
+    database: "sulamscoreboard",
+    password: "admin",
+    port: 5432,
 })
 
-app.get("/*", function(req, res) {
-    res.sendFile(
-        path.join(__dirname, "../frontend/index.html"),
-        function(err){
-            if(err){
-                res.status(500).send(err);
-            }
-        }
-    )
-})
+// app.get("/*", function(req, res) {
+//     res.sendFile(
+//         path.join(__dirname, "../frontend/index.html"),
+//         function(err){
+//             if(err){
+//                 res.status(500).send(err);
+//             }
+//         }
+//     )
+// })
 
 // Get all scores
 app.get("/scores", async (req, res) => {

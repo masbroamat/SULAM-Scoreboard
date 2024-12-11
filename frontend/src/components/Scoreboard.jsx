@@ -8,7 +8,7 @@ const Scoreboard = () => {
 
     // Fetch scores from the server
     useEffect(() => {
-        axios.get("https://sulamscoreboard-cff5595b9c96.herokuapp.com/scores")
+        axios.get("http://localhost:5000/scores")
             .then((response) => setScores(response.data))
             .catch((error) => console.error("Error fetching scores:", error));
     }, []);
@@ -31,7 +31,7 @@ const Scoreboard = () => {
     const saveScores = () => {
         scores.forEach((group) => {
             for (let i = 1; i <= 5; i++) {
-                axios.put(`https://sulamscoreboard-cff5595b9c96.herokuapp.com/scores/${group.id}`, {
+                axios.put(`http://localhost:5000/scores/${group.id}`, {
                     checkpointIndex: i,
                     newScore: group[`checkpoint_${i}`],
                 });
@@ -41,7 +41,7 @@ const Scoreboard = () => {
     };
 
     const resetScores = () => {
-        axios.put("https://sulamscoreboard-cff5595b9c96.herokuapp.com/scores/reset")
+        axios.put("http://localhost:5000/scores/reset")
             .then(() => {
                 // After resetting on the server, reset scores to 0 in the frontend as well
                 setScores(prevScores =>
