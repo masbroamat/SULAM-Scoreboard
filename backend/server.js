@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 5001;
+
 // PostgreSQL connection pool
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -15,6 +17,17 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
+})
+
+app.get("/*", function(req, res) {
+    res.sendFile(
+        path.join(__dirname, "../frontend/build/index.html"),
+        function(err){
+            if(err){
+                res.status(500).send(err);
+            }
+        }
+    )
 })
 
 // Get all scores
@@ -46,7 +59,7 @@ app.put("/scores/:id", async (req, res) => {
     }
 });
 
-const PORT = 5000;
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
