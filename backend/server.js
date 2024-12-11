@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -9,12 +10,12 @@ app.use(bodyParser.json());
 
 // PostgreSQL connection pool
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "sulamscoreboard",
-    password: "admin",
-    port: 5432,
-});
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+})
 
 // Get all scores
 app.get("/scores", async (req, res) => {

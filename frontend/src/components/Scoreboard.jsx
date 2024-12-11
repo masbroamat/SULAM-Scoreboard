@@ -8,7 +8,7 @@ const Scoreboard = () => {
 
     // Fetch scores from the server
     useEffect(() => {
-        axios.get("http://localhost:5000/scores")
+        axios.get("https://sulamscoreboard-cff5595b9c96.herokuapp.com/scores")
             .then((response) => setScores(response.data))
             .catch((error) => console.error("Error fetching scores:", error));
     }, []);
@@ -31,7 +31,7 @@ const Scoreboard = () => {
     const saveScores = () => {
         scores.forEach((group) => {
             for (let i = 1; i <= 5; i++) {
-                axios.put(`http://localhost:5000/scores/${group.id}`, {
+                axios.put(`https://sulamscoreboard-cff5595b9c96.herokuapp.com/scores/${group.id}`, {
                     checkpointIndex: i,
                     newScore: group[`checkpoint_${i}`],
                 });
@@ -41,7 +41,7 @@ const Scoreboard = () => {
     };
 
     const resetScores = () => {
-        axios.put("http://localhost:5000/scores/reset")
+        axios.put("https://sulamscoreboard-cff5595b9c96.herokuapp.com/scores/reset")
             .then(() => {
                 // After resetting on the server, reset scores to 0 in the frontend as well
                 setScores(prevScores =>
@@ -88,6 +88,10 @@ const Scoreboard = () => {
             .sort((a, b) => b.total - a.total);
     };
 
+    const totalScores = scores.reduce((sum, group) => {
+        return sum + (group.checkpoint_1 + group.checkpoint_2 + group.checkpoint_3 + group.checkpoint_4 + group.checkpoint_5);
+    }, 0);
+
     return (
         <div className="scoreboard">
             <div className="groups">
@@ -113,7 +117,11 @@ const Scoreboard = () => {
                 ))}
             </div>
             <div className="ranking">
-                <h2>Ranking</h2>
+                <h2>Ranking  :-
+                <span style={{ fontSize: "24px" }}>
+                    Total Score: RM{totalScores.toLocaleString()}
+                </span>
+                </h2>
                 <table className="ranking-table">
                     <thead>
                         <tr>
