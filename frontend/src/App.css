@@ -63,3 +63,20 @@ button:not(:disabled) {
 * {
   font-size: calc(20px); 
 } */
+
+.logos img {
+  width: 80px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.logos{
+  display: flex;
+  gap: 10px;
+}
+.footer{
+  position: absolute;
+  bottom: -10px;
+  left: 75%;
+  transform: translateX(-50%);
+  font-size: 20px;
+}
