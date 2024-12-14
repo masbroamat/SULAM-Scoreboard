@@ -26,12 +26,13 @@ function App() {
 
     return (
         <div className="App">
+                <h1 className="programname">SULAM SHIELD: EMPOWERING CYBERSECURITY AWARENESS</h1>
             <header className="App-header">
-                <h1>Leaderboard Scoreboard</h1>
+                <h1 className="leaderboardname">Leaderboard Scoreboard</h1>
                 <div className="logos">
-                    <img src={logoisec} alt="logoisec" />
-                    <img src={logosulam} alt="logosulam" />
-                    <img src={logouitmwhite} alt="logouitmwhite" /> 
+                    <img src={logouitmwhite} alt="logouitmwhite" className="logouitmwhite"/> 
+                    <img src={logosulam} alt="logosulam" className="logosulam"/>
+                    <img src={logoisec} alt="logoisec" className="logoisec"/>
                 </div>
                 <span className="buttons">
                     <button onClick={handleSave} className="save-button">Save</button>
@@ -40,6 +41,7 @@ function App() {
             </header>
             <Scoreboard />
             <p className="footer">UiTM JASIN x KOLEJ YAYASAN SAAD</p>
+            <p className="slogan">#SULAMSHIELD</p>
         </div>
     );
 }

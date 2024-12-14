@@ -6,7 +6,7 @@ const GroupColumn = ({ groupName, scores, onUpdateScore }) => {
     let newScore = parseInt(e.target.value) || 0;  // Parse the value as an integer
 
     // Ensure the value doesn't exceed the max limit of 100000 or go below 0
-    if (newScore > 100000) newScore = 100000;
+    // if (newScore > 150000) newScore = 100000;
     if (newScore < 0) newScore = 0;
 
     // Call the parent function to update the score for the specific checkpoint (index + 1)
@@ -32,7 +32,7 @@ const GroupColumn = ({ groupName, scores, onUpdateScore }) => {
         ))}
       </div>
       <div className="group-total">
-        Total: RM{scores.reduce((sum, score) => sum + score, 0).toLocaleString()}
+        Total: <br/>RM{scores.reduce((sum, score) => sum + score, 0).toLocaleString()}
       </div>
     </div>
   );
